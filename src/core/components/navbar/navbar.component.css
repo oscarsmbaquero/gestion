@@ -1,7 +1,7 @@
 span, h1, a {
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
-    color:white;
+    color:black;
 }
 .text-info{
   font-size: 24px;
@@ -11,7 +11,7 @@ span, h1, a {
     span {
       font-size: 13px;
       font-family: 'Open Sans', sans-serif;
-      color:white;
+      color:black;
     }
   }
   
@@ -61,7 +61,7 @@ span, h1, a {
   
   .line {
     fill: none;
-    stroke: white;
+    stroke: black;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 3;
@@ -84,7 +84,7 @@ span, h1, a {
     }
     .dropdown-divider {
       width: 80%;
-      border: 0.3px solid #fff;
+      border: 0.3px solid black;
       margin: 1px 0; /* Ajusta los márgenes según sea necesario */
     }
 

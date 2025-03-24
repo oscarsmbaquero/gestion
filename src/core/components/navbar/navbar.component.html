@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md sticky-top" style="background-color: black">
+<nav class="navbar navbar-expand-md sticky-top">
   <div class="container-fluid padding:10px">
     <a class="navbar-brand" href="#">
       &nbsp;<span class="text-info">ZSS</span>&nbsp;<span
@@ -20,9 +20,9 @@
         <path
           class="line line-top-bottom"
           d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
-          style="stroke: #fff"
+          style="stroke: black"
         ></path>
-        <path class="line" style="stroke: #fff" d="M7 16 27 16"></path>
+        <path class="line" style="stroke: black" d="M7 16 27 16"></path>
       </svg>
     </button>
     <div
@@ -30,7 +30,7 @@
       tabindex="-1"
       id="offcanvasNavbar"
       aria-labelledby="offcanvasNavbarLabel"
-      style="background-color: black"
+      style="background-color: white"
     >
       <div class="offcanvas-header">
         <a class="navbar-brand" href="#">
@@ -80,6 +80,23 @@
               data-bs-dismiss="offcanvas"
             >
               <span> ChatBox </span>
+            </a>
+          </li>
+          <hr class="dropdown-divider" />
+          <li
+            (click)="selectOption('asistentes')"
+            [class.selected]="selectedOption === 'asistentes'"
+            class="nav-item"
+            routerLinkActive="active"
+          >
+            <a
+              class="nav-link"
+              [routerLink]="['/asistentes']"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+              data-bs-dismiss="offcanvas"
+            >
+              <span>Asistentes</span>
             </a>
           </li>
         </ul>

@@ -1,0 +1,26 @@
+<div class="chat">
+  <div class="chat-container">
+    <div class="title">
+      <span
+        >Hola , soy tu asistente
+        <strong>{{ capitalize(chatTipo) }}</strong></span
+      >
+    </div>
+    <div class="chat-box" #chatBox  *ngIf="!loading; else Notloading">
+      @for (msg of messages; track $index) {
+        <div class="message" [ngClass]="msg.role">
+          {{ msg.content }}
+        </div>
+      }    
+    </div>
+    <ng-template #Notloading>
+      <div class="loading">
+        <app-loading></app-loading>
+      </div>      
+    </ng-template>
+    <div class="chat-input">
+      <input [(ngModel)]="inputText" placeholder="Escribe tu mensaje..." />
+      <button (click)="sendMessage()">Enviar</button>
+    </div>
+  </div>
+</div>
