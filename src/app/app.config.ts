@@ -7,7 +7,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
-import Nora from '@primeng/themes/nora';
+import Lara from '@primeng/themes/lara';
 
 
 export const provideTranslation = () => ({

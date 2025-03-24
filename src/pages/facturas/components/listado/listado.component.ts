@@ -6,11 +6,12 @@ import { BehaviorSubject } from 'rxjs';
 import { IFactura } from '../../../../core/models/facturas-model';
 import { TableModule } from 'primeng/table';
 import { LoadingComponent } from '../../../../shared/components/loading/loading.component';
+import { MatrixComponent } from '../../../../shared/components/loading-two/matrix/matrix.component';
 
 @Component({
   selector: 'app-listado',
   standalone: true,
-  imports: [TableModule, LoadingComponent],
+  imports: [TableModule, LoadingComponent, MatrixComponent],
   templateUrl: './listado.component.html',
   styleUrl: './listado.component.css'
 })
@@ -18,17 +19,16 @@ export class ListadoComponent {
 
   private facturasSubject: BehaviorSubject<IFactura[]> = new BehaviorSubject<IFactura[]>([]);
   facturas! : any[]
-  loading = true;
+  loading = false;
 
   constructor(private facturasService: FacturasService){
 
 }
 ngOnInit() {
+  this.loading = true;
   this.facturasService.getfacturas().subscribe((element)=>{
     this.facturasSubject.next(element);
-    this.facturas = element;
-    console.log(this.facturas);
-    
+    this.facturas = element;    
     this.loading= false;            
   })
 }

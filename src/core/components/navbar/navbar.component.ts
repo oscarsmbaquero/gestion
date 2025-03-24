@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router'; // Import the RouterModule here
+import { Router, RouterModule } from '@angular/router'; // Import the RouterModule here
 import { Subscription } from 'rxjs';
 import { NavbarService } from '../../services/navbarService/navbar.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -36,7 +36,8 @@ userActive: any;
     private navbarService: NavbarService,
     public translate: TranslateService,
     public translationService: TranslationService,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private router: Router
   ){
 
   }
@@ -117,6 +118,7 @@ userActive: any;
 
   logout(): void {
     this.usersService.clearCurrentUser();
+    this.router.navigate(['login'])
  }
 
 }
