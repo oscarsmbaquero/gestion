@@ -1,18 +1,31 @@
-<div class="factura">
-  <p-tabView styleClass="tabview-custom">
-    <p-tabPanel header="Header II">
-        <ng-template pTemplate="header">
-            <i class="pi pi-user"></i>&nbsp;
-            <span>Listado facturas</span>
-        </ng-template>
-        <app-listado></app-listado>
-    </p-tabPanel>
-    <p-tabPanel header="Header II">
-        <ng-template pTemplate="header">
-            <i class="pi pi-chart-bar"></i>&nbsp;
-            <span>Añadir Factura</span>
-        </ng-template>
+<p-tabs value="0" scrollable>
+  <p-tablist>
+      <ng-template #previcon>
+          <i class="pi pi-minus"></i>
+      </ng-template>
+      <p-tab value="0">
+          <p-avatar image="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1742489552/contable_srluxc.png" shape="circle"/>
+          <span class="font-bold whitespace-nowrap">Facturas</span>
+      </p-tab>
+      <p-tab value="1">
+          <p-avatar image="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1742811830/agregar_orzrth.png" shape="circle" />
+          <span class="font-bold whitespace-nowrap">Añadir</span>
+      </p-tab>
+      <!-- <p-tab value="2">
+          <p-avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+          <span class="font-bold whitespace-nowrap">Ioni Bowcher</span>
+          <p-badge value="2" />
+      </p-tab> -->
+      <ng-template #nexticon>
+          <i class="pi pi-plus"></i>
+      </ng-template>
+  </p-tablist>
+  <p-tabpanels>
+      <p-tabpanel value="0">
+         <app-listado></app-listado>
+      </p-tabpanel>
+      <p-tabpanel value="1">
         <app-anadir></app-anadir>
-    </p-tabPanel>
-  </p-tabView>  
-</div>
+      </p-tabpanel>
+  </p-tabpanels>
+</p-tabs>

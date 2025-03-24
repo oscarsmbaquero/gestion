@@ -3,20 +3,28 @@ import { CommonModule } from '@angular/common';
 
 //primeng
 
-import { TabViewModule } from 'primeng/tabview';
+import { AvatarModule } from 'primeng/avatar';
+import { TabsModule } from 'primeng/tabs';
+import { BadgeModule } from 'primeng/badge';
 //components
 import { ListadoComponent } from './components/listado/listado.component';
 import { AnadirComponent } from './components/anadir/anadir.component';
 
+
 @Component({
   selector: 'app-facturas',
   standalone: true,
-  imports: [TabViewModule, CommonModule, AnadirComponent, AnadirComponent, ListadoComponent],
+  imports: [TabsModule, CommonModule, AnadirComponent, ListadoComponent, AvatarModule, BadgeModule],
   templateUrl: './facturas.component.html',
   styleUrl: './facturas.component.css'
 })
-export class FacturasComponent implements OnInit {
-  ngOnInit() {
-}
+export class FacturasComponent  {
 
-}
+  
+
+  }
+ 
+
+
+
+
