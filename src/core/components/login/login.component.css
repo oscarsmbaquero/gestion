@@ -1,0 +1,168 @@
+.user{
+  padding-left: 15px;    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  
+}
+
+/* Estilos generales */
+
+/* Contenedor principal */
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #fff; */
+  padding: 20px;
+  border-radius: 8px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+/* Contenedor de la imagen */
+.image-container {
+  margin-right: 20px;
+}
+
+/* Imagen */
+.image-container img {
+  width: 300px;
+  border-radius: 8px;
+}
+
+/* Contenedor del formulario */
+.login-container {
+  width: 300px;
+  text-align: center;
+  
+}
+
+/* Título */
+.login-container h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Campos del formulario */
+.login-container input[type="email"],
+.login-container input[type="nombre"],
+.login-container input[type="password"],
+.login-container input[type="apellidos"],
+.login-container input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #f1eded;
+  border-radius: 4px;
+  font-size: 16px !important;
+}
+
+
+
+/* Enlaces */
+.login-container a {
+  display: block;
+  margin-top: 10px;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
+}
+
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+  .image-container {
+      display: none;
+  }
+  .login-image{
+      display: none;
+  }
+  .form-margin{
+      margin-top: 50px;
+  }
+}
+
+.google-login{
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.input-container {
+  position: relative;
+  width: 100%; /* Se asegura de que ocupe todo el ancho disponible */
+}
+
+input[formControlName] {
+  width: 100%; /* El input ocupa todo el ancho del contenedor */
+  padding-right: 2.5rem; /* Espacio para el ícono */
+  box-sizing: border-box; /* Incluye padding en el ancho total */
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #f1eded;
+  border-radius: 4px;
+  font-size: 16px !important;
+}
+
+.input-container i {
+  position: absolute;
+  top: 50%;
+  right: 10px; 
+  transform: translateY(-50%);
+  cursor: pointer;
+  color:black; 
+}
+
+.input-container i:hover {
+  color: #555;
+}
+
+.form-container {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1px; /* Reduce el espacio entre los items */
+  margin-bottom: 25px;
+}
+
+.form-item {
+  display: flex;
+  align-items: center; /* Alinea mejor el texto y el checkbox */
+}
+
+input[type="checkbox"] {
+  margin-right: 10px; /* Asegura un espacio coherente entre el checkbox y el texto */
+  width: 16px; /* Tamaño igual para ambos checkboxes */
+  height: 16px;
+}
+
+label {
+  color: black;
+  line-height: 1.2; /* Ajusta el interlineado del texto */
+}
+
+a.link {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.borrar{   
+  background-color:red !important;
+ 
+}
+.clase{
+  color: rgb(8, 225, 233);
+}
+
+
+

@@ -52,7 +52,8 @@
       <!--primera lista-->
       <div class="offcanvas-body">
         <ul class="navbar-nav me-auto my-2 my-lg-0" style="padding: 15px">
-          <li
+          @if(userActive){
+            <li
             class="nav-item"
             (click)="selectOption('inicio')"
             [class.selected]="selectedOption === 'inicio'"
@@ -67,7 +68,8 @@
               <span>Inicio</span>
             </a>
           </li>
-          <hr class="dropdown-divider" />
+        
+          <hr class="dropdown-divider" />  
           <li
             class="nav-item"
             (click)="selectOption('facturas')"
@@ -117,6 +119,32 @@
               <span>Asistentes</span>
             </a>
           </li>
+          }
+        </ul>
+        <ul class="navbar-nav ml-auto my-2 my-lg-0" style="padding: 15px">
+          @if(!userActive){
+          <li class="nav-item" routerLinkActive="active">
+            <a
+              class="nav-link"
+              [routerLink]="['/login']"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+              data-bs-dismiss="offcanvas"
+              ><span>Iniciar sesión</span>
+            </a>
+          </li>
+          } @else {
+            <li class="nav-item" routerLinkActive="active" >
+              <a
+                class="nav-link"
+                routerLink="/logout"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+                (click)="logout()"
+              ><span>Cerrar sesión</span>                
+              </a>
+            </li>
+          }
         </ul>
       </div>
     </div>

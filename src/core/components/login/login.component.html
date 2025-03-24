@@ -1,0 +1,34 @@
+<div class="container">
+  <span class="text-warning">ZSS</span>&nbsp;<span class="text-danger"
+    >IA</span
+  >
+  <form novalidate (ngSubmit)="onSubmit()" [formGroup]="loginUser">
+    <div>
+      <input matInput formControlName="user" placeholder="User" required />
+      @if(loginUser.get('user')?.errors?.['required']){
+      <small>El correo es obligatorio</small>
+      }
+    </div>
+    <div class="input-container">
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        matInput
+        formControlName="password"
+        placeholder="Contraseña"
+      />
+      <i
+        class="fa"
+        [class.fa-eye]="showPassword"
+        [class.fa-eye-slash]="!showPassword"
+        (click)="togglePasswordVisibility('password')"
+      ></i>
+      @if(loginUser.get('password')?.invalid &&
+      loginUser.get('password')?.touched){
+      <div>
+        <small>La contraseña es obligatoria</small>
+      </div>
+      }
+    </div>
+    <button mat-raised-button color="primary">Enviar</button>
+  </form>
+</div>

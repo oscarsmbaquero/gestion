@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { NavbarService } from '../../services/navbarService/navbar.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslationService } from '../../services/translateService/translate.service';
+import { UsersService } from '../../services/users/users.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,9 +15,7 @@ import { TranslationService } from '../../services/translateService/translate.se
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-logout() {
-throw new Error('Method not implemented.');
-}
+userActive: any;
 
   currentTheme = 'dark';
 
@@ -31,12 +30,13 @@ throw new Error('Method not implemented.');
   selectedOption: string | undefined;
   private subscription: Subscription = new Subscription;
   selectedLanguage: string | undefined;
-activeUser: any;
+  activeUser: any;
 
   constructor( 
     private navbarService: NavbarService,
     public translate: TranslateService,
-    public translationService: TranslationService
+    public translationService: TranslationService,
+    private usersService: UsersService
   ){
 
   }
@@ -45,6 +45,10 @@ activeUser: any;
     this.subscription = this.navbarService.selectedOption$.subscribe(option => {
       this.selectedOption = option;
     });
+    this.usersService.getCurrentUser().subscribe(user => {
+      this.userActive = user?.user || '';
+      console.log(this.userActive, 'navbar');
+    }); 
     this.translate.setDefaultLang('es');
     this.translationService.getCurrentLanguage().subscribe(lang => {
       //this.currentLanguage = lang;
@@ -53,6 +57,8 @@ activeUser: any;
       this.textoIdioma =  lang.charAt(0).toUpperCase() + lang.slice(1);
       this.currentLanguage =this.pintarIdioma(lang);
       console.log(this.currentLanguage);
+
+      
       
       
     });
@@ -108,5 +114,9 @@ activeUser: any;
   
     return rutaBandera;
   }
+
+  logout(): void {
+    this.usersService.clearCurrentUser();
+ }
 
 }

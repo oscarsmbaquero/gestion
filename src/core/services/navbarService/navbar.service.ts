@@ -13,7 +13,7 @@ export class NavbarService {
 
   constructor() { 
     const savedOption = localStorage.getItem(this.LOCAL_STORAGE_KEY);
-    this.selectedOptionSubject = new BehaviorSubject<string>(savedOption || 'facturas');
+    this.selectedOptionSubject = new BehaviorSubject<string>(savedOption || '');
   }
 
   /**
