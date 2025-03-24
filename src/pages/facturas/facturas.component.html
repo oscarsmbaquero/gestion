@@ -1,3 +1,18 @@
 <div class="factura">
-  <p>facturas works!</p>
+  <p-tabView styleClass="tabview-custom">
+    <p-tabPanel header="Header II">
+        <ng-template pTemplate="header">
+            <i class="pi pi-user"></i>&nbsp;
+            <span>Listado facturas</span>
+        </ng-template>
+        <app-listado></app-listado>
+    </p-tabPanel>
+    <p-tabPanel header="Header II">
+        <ng-template pTemplate="header">
+            <i class="pi pi-chart-bar"></i>&nbsp;
+            <span>Añadir Factura</span>
+        </ng-template>
+        <app-anadir></app-anadir>
+    </p-tabPanel>
+  </p-tabView>  
 </div>

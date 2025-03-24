@@ -14,6 +14,9 @@ import { TranslationService } from '../../services/translateService/translate.se
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit, OnDestroy {
+logout() {
+throw new Error('Method not implemented.');
+}
 
   currentTheme = 'dark';
 
@@ -28,6 +31,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   selectedOption: string | undefined;
   private subscription: Subscription = new Subscription;
   selectedLanguage: string | undefined;
+activeUser: any;
 
   constructor( 
     private navbarService: NavbarService,

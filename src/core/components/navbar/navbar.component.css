@@ -2,7 +2,10 @@ span, h1, a {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     color:white;
-  }
+}
+.text-info{
+  font-size: 24px;
+}
   
   @media (max-width: 768px) {
     span {
@@ -73,7 +76,7 @@ span, h1, a {
     }
   
     .selected {
-      border-bottom: 3px solid rgb(226, 209, 52); 
+      border-bottom: 3px solid red; 
     }
   
     .navbar-right {
@@ -139,7 +142,7 @@ span, h1, a {
     .selected span {
       /* color: blue; */
       font-weight: bold;
-      color: rgb(226, 209, 52);
+      color:red;
       /* O cualquier estilo de subrayado deseado */
     }
     .dropdown-divider {
