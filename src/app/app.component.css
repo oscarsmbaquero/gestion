@@ -13,6 +13,8 @@ body {
   flex: 1; /* Ocupa el espacio restante entre el navbar y el footer */
   padding: 1rem; /* Espaciado interno */
   min-height: calc(100vh - 120px); /* Asegura que el contenido ocupe al menos el alto de la ventana menos el espacio del navbar y footer */
+  background: linear-gradient(to bottom, #f0f2f5, #d9e2ec);
+  
 }
 
 /* Estilos responsivos para el contenedor principal */

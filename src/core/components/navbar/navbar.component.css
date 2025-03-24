@@ -1,6 +1,7 @@
 span, h1, a {
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
+    
     color:black;
 }
 .text-info{
@@ -10,7 +11,7 @@ span, h1, a {
   @media (max-width: 768px) {
     span {
       font-size: 13px;
-      font-family: 'Open Sans', sans-serif;
+      font-family: system-ui;
       color:black;
     }
   }

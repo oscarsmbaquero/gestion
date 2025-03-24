@@ -1,1 +1,25 @@
-<p>anadir works!</p>
+<div class="form">
+<form novalidate [formGroup]="addPhoto" class="form-container">    
+    <div class="flex justify-center">
+        <p-toast />
+        <p-fileupload
+            mode="basic"
+            name="demo[]"
+            chooseIcon="pi pi-upload"
+            url="https://www.primefaces.org/cdn/api/upload.php"
+            accept="image/*" maxFileSize="1000000"
+            (onUpload)="onFileSelected($event)"
+            [auto]="true"
+            chooseLabel="Adjuntar" />
+    </div>
+    
+    <label>Selecciona una opción</label>
+    <select  (change)="onInputChange()" required formControlName="tipo">
+        <option value="opcion1">Opción 1</option>
+        <option value="opcion2">Opción 2</option>
+        <option value="opcion3">Opción 3</option>
+    </select>
+    
+    <button (click)="onSubmit()" [disabled]="!addPhoto.valid" type="submit">Enviar</button>
+</form>
+</div>
