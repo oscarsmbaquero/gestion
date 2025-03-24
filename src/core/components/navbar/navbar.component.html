@@ -51,6 +51,22 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav me-auto my-2 my-lg-0" style="padding: 15px">
           <li
+          class="nav-item"
+          (click)="selectOption('inicio')"
+          [class.selected]="selectedOption === 'inicio'"
+        >
+          <a
+            class="nav-link"
+            [routerLink]="['inicio']"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+            data-bs-dismiss="offcanvas"
+          >
+            <span>Inicio</span>
+          </a>
+        </li>
+        <hr class="dropdown-divider" />
+          <li
             class="nav-item"
             (click)="selectOption('facturas')"
             [class.selected]="selectedOption === 'facturas'"
