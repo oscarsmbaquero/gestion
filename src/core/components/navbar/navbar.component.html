@@ -1,53 +1,89 @@
-<nav
-  class="navbar navbar-expand-md sticky-top"
-  style="background-color:black"
-  >
+<nav class="navbar navbar-expand-md sticky-top" style="background-color: black">
   <div class="container-fluid padding:10px">
     <a class="navbar-brand" href="#">
-      &nbsp;<span class="text-info">ZSS</span>&nbsp;<span class="text-danger text-info">IA</span>
+      &nbsp;<span class="text-info">ZSS</span>&nbsp;<span
+        class="text-danger text-info"
+        >IA</span
+      >
     </a>
-    <label
-      class="hamburger navbar-toggler"
+    <button
+      class="navbar-toggler"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarScroll"
-      aria-controls="navbarScroll"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar"
       aria-expanded="false"
       aria-label="Toggle navigation"
-      style="border: none"
+      style="border: none; background: transparent"
     >
-      <!-- </button> -->
-      <input type="checkbox" />
-      <svg viewBox="0 0 32 32">
+      <svg viewBox="0 0 32 32" width="32" height="32">
         <path
           class="line line-top-bottom"
           d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
-          [style.stroke]="currentTheme === 'dark' ? '#fff' : '#fff'"
+          style="stroke: #fff"
         ></path>
-        <path
-          class="line"
-          [style.stroke]="currentTheme === 'dark' ? '#fff' : '#fff'"
-          d="M7 16 27 16"
-        ></path>
+        <path class="line" style="stroke: #fff" d="M7 16 27 16"></path>
       </svg>
-    </label>
-    <div class="collapse navbar-collapse" id="navbarScroll">
+    </button>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+      style="background-color: black"
+    >
+      <div class="offcanvas-header">
+        <a class="navbar-brand" href="#">
+          &nbsp;<span class="text-info">ZSS</span>&nbsp;<span
+            class="text-danger text-info"
+            >IA</span
+          >
+        </a>
+        <button
+          style="color: white"
+          type="button"
+          class="btn-close custom-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
       <!--primera lista-->
-      <ul class="navbar-nav me-auto my-2 my-lg-0" style="padding: 15px">
-        <li class="nav-item" (click)="selectOption('facturas')" [class.selected]="selectedOption === 'facturas'">
-          <a class="nav-link" [routerLink]="['facturas']" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <span>Facturas</span>
-          </a>
-        </li>
-        <hr class="dropdown-divider" />
-        <li (click)="selectOption('chatbox')" [class.selected]="selectedOption === 'chatbox'" class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/chatbox']" data-toggle="collapse" data-target=".navbar-collapse.show">
-            <span>
-              ChatBox
-            </span>
-          </a>
-        </li>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav me-auto my-2 my-lg-0" style="padding: 15px">
+          <li
+            class="nav-item"
+            (click)="selectOption('facturas')"
+            [class.selected]="selectedOption === 'facturas'"
+          >
+            <a
+              class="nav-link"
+              [routerLink]="['facturas']"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+              data-bs-dismiss="offcanvas"
+            >
+              <span>Facturas</span>
+            </a>
+          </li>
+          <hr class="dropdown-divider" />
+          <li
+            (click)="selectOption('chatbox')"
+            [class.selected]="selectedOption === 'chatbox'"
+            class="nav-item"
+            routerLinkActive="active"
+          >
+            <a
+              class="nav-link"
+              [routerLink]="['/chatbox']"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+              data-bs-dismiss="offcanvas"
+            >
+              <span> ChatBox </span>
+            </a>
+          </li>
         </ul>
+      </div>
     </div>
   </div>
 </nav>
