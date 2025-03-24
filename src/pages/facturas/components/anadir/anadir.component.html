@@ -1,6 +1,6 @@
 <div class="form">
 <form novalidate [formGroup]="addPhoto" class="form-container">    
-    <div class="flex justify-center">
+    <div class="flex justify-center mb-5">
         <p-toast />
         <p-fileupload
             mode="basic"
@@ -12,13 +12,14 @@
             [auto]="true"
             chooseLabel="Adjuntar" />
     </div>
-    
-    <label>Selecciona una opción</label>
-    <select  (change)="onInputChange()" required formControlName="tipo">
-        <option value="opcion1">Opción 1</option>
-        <option value="opcion2">Opción 2</option>
-        <option value="opcion3">Opción 3</option>
-    </select>
+    <div class="mb-5">
+        <label>Selecciona una opción</label>
+        <select (change)="onInputChange()" required formControlName="tipo">
+            <option value="opcion1">Opción 1</option>
+            <option value="opcion2">Opción 2</option>
+            <option value="opcion3">Opción 3</option>
+        </select>
+    </div>
     
     <button (click)="onSubmit()" [disabled]="!addPhoto.valid" type="submit">Enviar</button>
 </form>
