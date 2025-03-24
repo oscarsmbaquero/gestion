@@ -2,7 +2,7 @@ span, h1, a {
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     
-    color:black;
+    color:white;
 }
 .text-info{
   font-size: 24px;
@@ -62,7 +62,7 @@ span, h1, a {
   
   .line {
     fill: none;
-    stroke: black;
+    stroke: white;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 3;
