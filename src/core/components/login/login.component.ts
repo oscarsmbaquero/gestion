@@ -9,15 +9,15 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { trigger, transition, style, animate } from '@angular/animations';
 import { UsersService } from '../../services/users/users.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
+//primeng
+import { MessageModule } from 'primeng/message';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports:[ReactiveFormsModule],
+  imports:[ReactiveFormsModule, MessageModule, ButtonModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -26,7 +26,9 @@ export class LoginComponent {
   public loginUser: FormGroup;
   public submitted: boolean = false;
   showPassword: boolean = false;
-  
+  loginError: boolean | null = null;
+  loading = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private userServices: UsersService,
@@ -40,21 +42,28 @@ export class LoginComponent {
   }
 
   public onSubmit(): void {
-    // El usuario ha pulsado en submit->cambia a true submitted
     this.submitted = true;
-    // Si el formulario es valido
+    this.loginError = null; 
+    this.loading = true;  
     if (this.loginUser.valid) {
-      // Creamos un Usuario y lo emitimos
       const user: any = {
         user: this.loginUser.get('user')?.value,
         password: this.loginUser.get('password')?.value,
       };
+  
       this.userServices.login(user).subscribe(
         (response) => {
-          this.router.navigate(['facturas']);
+          this.loginError = false;
+          setTimeout(() => {
+            this.loading = false;
+            this.router.navigate(['facturas']);  
+          }, 1500);
+          
         },
         (error) => {
+this.loginError = true;
           console.error('Error al enviar los datos', error);
+          this.loading = false;
         }
       );
     }

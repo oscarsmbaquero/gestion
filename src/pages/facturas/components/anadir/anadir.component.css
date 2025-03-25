@@ -29,10 +29,13 @@ select {
     border-radius: 5px;
     margin-bottom: 15px;
 }
+/*
+* TODO ESTILOS  COMENTADOS PARA CAMBIAR EL BOTON ADJUNTAR
+*/
 
-::ng-deep .p-fileupload button.p-button {
+/* ::ng-deep .p-fileupload button.p-button {
     background-color: dodgerblue !important;
     color: white !important;
     border: none;
-  }
+  } */
   

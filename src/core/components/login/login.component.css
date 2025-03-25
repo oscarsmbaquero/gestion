@@ -25,11 +25,12 @@
 
   @media (max-width: 768px) {
     flex-direction: column;
-
+    
     .image-container {
       display: flex; /* Asegura que se muestre */
       max-width: 100%;
       justify-content: center;
+      height: 150px;
     }
 
     .image-container img {
