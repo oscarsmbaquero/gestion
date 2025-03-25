@@ -1,108 +1,68 @@
-.user{
-  padding-left: 15px;    
+.auth-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  
-}
-
-/* Estilos generales */
-
-/* Contenedor principal */
-.main-container {
-  display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  /* background-color: #fff; */
-  padding: 20px;
-  border-radius: 8px;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-}
+  min-height: 60vh;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten */
 
-/* Contenedor de la imagen */
-.image-container {
-  margin-right: 20px;
-}
-
-/* Imagen */
-.image-container img {
-  width: 300px;
-  border-radius: 8px;
-}
-
-/* Contenedor del formulario */
-.login-container {
-  width: 300px;
-  text-align: center;
-  
-}
-
-/* Título */
-.login-container h1 {
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Campos del formulario */
-.login-container input[type="email"],
-.login-container input[type="nombre"],
-.login-container input[type="password"],
-.login-container input[type="apellidos"],
-.login-container input[type="email"] {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #f1eded;
-  border-radius: 4px;
-  font-size: 16px !important;
-}
-
-
-
-/* Enlaces */
-.login-container a {
-  display: block;
-  margin-top: 10px;
-  color: #007BFF;
-  text-decoration: none;
-}
-
-.login-container a:hover {
-  text-decoration: underline;
-}
-
-
-/* Estilos responsivos */
-@media (max-width: 600px) {
-  .image-container {
-      display: none;
+  .image-container, .login-container {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .login-image{
-      display: none;
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
   }
-  .form-margin{
-      margin-top: 50px;
+
+  .login-container {
+    flex-direction: column;
+    max-width: 50%;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .image-container {
+      display: flex; /* Asegura que se muestre */
+      max-width: 100%;
+      justify-content: center;
+    }
+
+    .image-container img {
+      width: 150px; /* Hace la imagen más pequeña */
+      max-width: 50%; /* Evita que sea demasiado grande */
+    }
+
+    .login-container {
+      max-width: 100%;
+    }
   }
 }
 
-.google-login{
+form{
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-top: 15px;
+  align-items: center;
 }
 
+/* formulario */
 .input-container {
   position: relative;
-  width: 100%; /* Se asegura de que ocupe todo el ancho disponible */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  width: 80%; /* Se asegura de que ocupe todo el ancho disponible */
 }
 
 input[formControlName] {
-  width: 100%; /* El input ocupa todo el ancho del contenedor */
+  width: 60%; /* El input ocupa todo el ancho del contenedor */
   padding-right: 2.5rem; /* Espacio para el ícono */
   box-sizing: border-box; /* Incluye padding en el ancho total */
-  padding: 10px;
   font-size: 16px;
   width: 100%;
   padding: 10px;
@@ -124,45 +84,3 @@ input[formControlName] {
 .input-container i:hover {
   color: #555;
 }
-
-.form-container {
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1px; /* Reduce el espacio entre los items */
-  margin-bottom: 25px;
-}
-
-.form-item {
-  display: flex;
-  align-items: center; /* Alinea mejor el texto y el checkbox */
-}
-
-input[type="checkbox"] {
-  margin-right: 10px; /* Asegura un espacio coherente entre el checkbox y el texto */
-  width: 16px; /* Tamaño igual para ambos checkboxes */
-  height: 16px;
-}
-
-label {
-  color: black;
-  line-height: 1.2; /* Ajusta el interlineado del texto */
-}
-
-a.link {
-  text-decoration: underline;
-  color: inherit;
-}
-
-.borrar{   
-  background-color:red !important;
- 
-}
-.clase{
-  color: rgb(8, 225, 233);
-}
-
-
-
