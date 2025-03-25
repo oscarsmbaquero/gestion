@@ -20,7 +20,9 @@
             <option value="opcion3">Opción 3</option>
         </select>
     </div>
+    <div class="row">
+        <button class="button" (click)="onSubmit()" [disabled]="!addPhoto.valid" type="submit"><span style="font-weight: bold;">Enviar</span></button>
+    </div>
     
-    <button (click)="onSubmit()" [disabled]="!addPhoto.valid" type="submit">Enviar</button>
 </form>
 </div>
