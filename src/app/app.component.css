@@ -1,19 +1,10 @@
-/* Estilos globales */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: rgb(20, 20, 20);
-  color: #333;
-  box-sizing: border-box;
-}
 
 /* Contenedor principal */
 .main {
   flex: 1; /* Ocupa el espacio restante entre el navbar y el footer */
   padding: 1rem; /* Espaciado interno */
   min-height: calc(100vh - 120px); /* Asegura que el contenido ocupe al menos el alto de la ventana menos el espacio del navbar y footer */
-  background: linear-gradient(to bottom, rgb(20, 20, 20), rgb(10, 61, 140));
+  background: linear-gradient(to bottom, rgb(20, 20, 20), rgb(20, 21, 50));
   
 }
 
