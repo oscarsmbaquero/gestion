@@ -1,6 +1,4 @@
-h1 {
-    font-family: "cursive";
-  }
+
   
   .conta {
     min-height: 80vh;
@@ -30,6 +28,7 @@ h1 {
     background-color: #fff;
     transition: transform 0.2s;
     padding: 8px;
+    font-family: cursive;
   }
   
   .card-image {
