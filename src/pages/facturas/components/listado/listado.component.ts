@@ -11,7 +11,7 @@ import { MatrixComponent } from '../../../../shared/components/loading-two/matri
 @Component({
   selector: 'app-listado',
   standalone: true,
-  imports: [TableModule, LoadingComponent, MatrixComponent],
+  imports: [TableModule, LoadingComponent, MatrixComponent, CommonModule],
   templateUrl: './listado.component.html',
   styleUrl: './listado.component.css'
 })
@@ -26,12 +26,23 @@ export class ListadoComponent {
 }
 ngOnInit() {
   this.loading = true;
-  this.facturasService.getfacturas().subscribe((element)=>{
-    this.facturasSubject.next(element);
-    this.facturas = element;    
-    this.loading= false;            
-  })
+  this.facturasService.getfacturas().subscribe((element) => {
+    // Agregar la propiedad "incomplete" si algún campo tiene "No encontrado"
+    const facturasActualizadas = element.map((factura: any) => {
+      const hasNoEncontrado = Object.values(factura).some(value => value === "No encontrado");
+      return { ...factura, incomplete: hasNoEncontrado };
+    });
+
+    this.facturasSubject.next(facturasActualizadas);
+    this.facturas = facturasActualizadas;
+    
+    console.log(this.facturas);
+    console.log(this.facturasSubject);
+
+    this.loading = false;
+  });
 }
+
 
 seePhoto(url: string) {
   window.location.href = url;

@@ -44,8 +44,12 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product>
-      <tr>
-        <td>{{ product.proveedor }}</td>
+      <tr [ngClass]="{ 'warning': product.incomplete }">
+        <td>{{ product.proveedor }}
+          @if(product.incomplete){
+            <span><img src="../../../../assets/images/alerta.webp" alt="factura incompleta" width="35px"></span>
+          }
+        </td>
         <td>{{ product.cif }}</td>
         <td>{{ product.importe }}</td>
         <td>{{ product.iva }}</td>
