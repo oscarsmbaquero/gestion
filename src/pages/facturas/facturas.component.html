@@ -1,34 +1,56 @@
+<!-- <div class="card"> -->
 <p-tabs value="0" scrollable>
   <p-tablist>
-      <ng-template #previcon>
-          <i class="pi pi-minus"></i>
-      </ng-template>
-      <p-tab value="0">
-          <p-avatar image="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1742489552/contable_srluxc.png" shape="circle"/>
-          <span class="font-bold whitespace-nowrap">Facturas</span>
-      </p-tab>
-      <p-tab value="1">
-          <p-avatar image="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1742811830/agregar_orzrth.png" shape="circle" />
-          <span class="font-bold whitespace-nowrap">Añadir</span>
-      </p-tab>
-      <p-tab value="2">
-          <p-avatar image="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1742974718/warning_mjzrvr.png" shape="circle" />
-          <span class="font-bold whitespace-nowrap">Facturas incompletas</span>
-          <p-badge [value]="erroFacturasCount" severity="danger" />
-      </p-tab>
-      <ng-template #nexticon>
-          <i class="pi pi-plus"></i>
-      </ng-template>
+    <!-- <ng-template #previcon>
+      <i class="pi pi-minus"></i>
+    </ng-template> -->
+    <p-tab value="0">
+      <p-avatar
+        image="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1742489552/contable_srluxc.png"
+        shape="circle"
+      />
+      <span class="font-bold whitespace-nowrap">Facturas</span>
+    </p-tab>
+    <p-tab value="1">
+      <p-avatar
+        image="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1742811830/agregar_orzrth.png"
+        shape="circle"
+      />
+      <span class="font-bold whitespace-nowrap">Añadir</span>
+    </p-tab>
+    <p-tab value="2">
+      <p-avatar
+        image="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1742974718/warning_mjzrvr.png"
+        shape="circle"
+      />
+      <span class="font-bold whitespace-nowrap"
+        >Incompletas<p-badge [value]="erroFacturasCount" severity="danger"
+      /></span>
+    </p-tab>
+    <p-tab value="3">
+      <p-avatar
+        image="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1743007298/graficas_a4av2u.png"
+        shape="circle"
+      />
+      <span class="font-bold whitespace-nowrap">Gráficas</span>
+    </p-tab>
+    <!-- <ng-template #nexticon>
+      <i class="pi pi-plus"></i>
+    </ng-template> -->
   </p-tablist>
   <p-tabpanels>
     <p-tabpanel value="0">
-        <app-listado></app-listado>
-      </p-tabpanel>
-      <p-tabpanel value="1">
-        <app-anadir></app-anadir>      
-      </p-tabpanel>      
-      <p-tabpanel value="2">
-        <app-facturas-erroneas></app-facturas-erroneas>
-      </p-tabpanel>
+      <app-listado></app-listado>
+    </p-tabpanel>
+    <p-tabpanel value="1">
+      <app-anadir></app-anadir>
+    </p-tabpanel>
+    <p-tabpanel value="2">
+      <app-facturas-erroneas></app-facturas-erroneas>
+    </p-tabpanel>
+    <p-tabpanel value="3">
+      <app-graficas [facturas]="facturas"></app-graficas>
+    </p-tabpanel>
   </p-tabpanels>
 </p-tabs>
+<!-- </div> -->

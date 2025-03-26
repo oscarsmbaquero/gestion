@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { BehaviorSubject } from 'rxjs';
+import { IFactura } from '../../core/models/facturas-model';
+import { FacturasService } from '../../core/services/facturasService/facturas.service';
 //primeng
-
 import { AvatarModule } from 'primeng/avatar';
 import { TabsModule } from 'primeng/tabs';
 import { BadgeModule } from 'primeng/badge';
@@ -10,15 +11,13 @@ import { BadgeModule } from 'primeng/badge';
 import { ListadoComponent } from './components/listado/listado.component';
 import { AnadirComponent } from './components/anadir/anadir.component';
 import { FacturasErroneasComponent } from './components/facturas-erroneas/facturas-erroneas.component';
-import { BehaviorSubject } from 'rxjs';
-import { IFactura } from '../../core/models/facturas-model';
-import { FacturasService } from '../../core/services/facturasService/facturas.service';
+import { GraficasComponent } from './components/graficas/graficas.component';
 
 
 @Component({
   selector: 'app-facturas',
   standalone: true,
-  imports: [TabsModule, CommonModule, AnadirComponent, ListadoComponent, AvatarModule, BadgeModule, FacturasErroneasComponent],
+  imports: [TabsModule, CommonModule, AnadirComponent, ListadoComponent, AvatarModule, BadgeModule, FacturasErroneasComponent, GraficasComponent],
   templateUrl: './facturas.component.html',
   styleUrl: './facturas.component.css'
 })

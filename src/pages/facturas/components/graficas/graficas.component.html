@@ -13,7 +13,7 @@
   </div>
   <div class="tabla">
     <p-table
-      [value]="facturasIncompletas"
+      [value]="facturas"
       styleClass="p-datatable-striped"
       [paginator]="true"
       [rows]="20"
@@ -44,17 +44,17 @@
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-product>
-        <tr [ngClass]="{ 'warning': product.incomplete }">
+        <tr>
           <td>{{ product.proveedor }}</td>
           <td>{{ product.cif }}</td>
           <td>{{ product.importe }}</td>
           <td>{{ product.iva }}</td>
           <td>{{ product.importeTotal }}</td>
-          <td style="background-color: white">{{ formatDate(product.fecha) }}</td>
+          <!-- <td style="background-color: white">{{ formatDate(product.fecha) }}</td> -->
           @if(product.url){
-          <td style="cursor: pointer" (click)="seePhoto(product.url)">
+          <!-- <td style="cursor: pointer" (click)="seePhoto(product.url)">
             <img src="../../../../assets/images/jpg.jpg" width="35px" />
-          </td>
+          </td> -->
           } @if(!product.url){
           <td></td>
           }
