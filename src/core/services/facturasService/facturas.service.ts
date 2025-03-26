@@ -3,7 +3,8 @@ import { HttpClient} from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../enviroment/environment';
 import { map } from 'rxjs/operators';
-import { IFactura } from '../../models/facturas-model';
+import {  IFactura } from '../../models/facturas-model';
+import { IMage } from '../../models/cars-models';
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +20,13 @@ export class FacturasService {
     return this.httpClient.get<IFactura[]>(`${environment.apiUrl}facturas`);
   }
 
-  public addFacturas(body: IFactura): Observable<IFactura> {
+  public addFacturas(body: IMage): Observable<IMage> {
     console.log(body,'body');
     
     const formData = new FormData();
-    formData.append('imagen', body.image);
+    formData.append('imagen', body.imagen);    
     //formData.append('tipo', body.tipo);
-    return this.httpClient.post<IFactura>(
+    return this.httpClient.post<IMage>(
       `${environment.apiUrl}facturas`,
       formData
     );

@@ -1,28 +1,25 @@
 <div class="form">
-<form novalidate [formGroup]="addPhoto" class="form-container">    
-    <div class="flex justify-center mb-5">
-        <p-toast />
-        <p-fileupload
-            mode="basic"
-            name="demo[]"
-            chooseIcon="pi pi-upload"
-            url="https://www.primefaces.org/cdn/api/upload.php"
-            accept="image/*" maxFileSize="1000000"
-            (onUpload)="onFileSelected($event)"
-            [auto]="true"
-            chooseLabel="Adjuntar" />
+  <form novalidate [formGroup]="addPhoto" class="form-container">
+    <h5>Adjuntar foto</h5>
+    <div class="file-upload">
+      <label for="fileInput" class="custom-file-upload">
+        <i class="pi pi-upload">&nbsp;</i>
+        {{ nameArchivo || "Seleccionar archivo" }}
+      </label>
+      <input
+        type="file"
+        id="fileInput"
+        (change)="onFileSelected($event)"
+        accept="image/*"
+      />
     </div>
-    <div class="mb-5">
-        <label>Selecciona una opción</label>
-        <select (change)="onInputChange()" required formControlName="tipo">
-            <option value="opcion1">Opción 1</option>
-            <option value="opcion2">Opción 2</option>
-            <option value="opcion3">Opción 3</option>
-        </select>
-    </div>
-    <div class="row">
-        <button class="button" (click)="onSubmit()" [disabled]="!addPhoto.valid" type="submit"><span style="font-weight: bold;">Enviar</span></button>
-    </div>
-    
-</form>
+    <div></div>
+    <p-button
+      label="Enviar"
+      icon="pi pi-check"
+      size="small"
+      (click)="onSubmit()"
+      [disabled]="!addPhoto.valid"
+    ></p-button>
+  </form>
 </div>

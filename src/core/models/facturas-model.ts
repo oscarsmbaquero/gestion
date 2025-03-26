@@ -9,3 +9,4 @@ export interface IFactura {
   _id: Object;
   tipo:string;
 }
+

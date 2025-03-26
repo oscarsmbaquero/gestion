@@ -7,6 +7,7 @@ import { ToastModule } from 'primeng/toast';
 import { FacturasService } from '../../../../core/services/facturasService/facturas.service';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
 
 interface UploadEvent {
   originalEvent: Event;
@@ -15,7 +16,7 @@ interface UploadEvent {
 @Component({
   selector: 'app-anadir',
   standalone: true,
-  imports: [FileUpload, ToastModule, ReactiveFormsModule],
+  imports: [FileUpload, ToastModule, ReactiveFormsModule, ButtonModule],
   providers: [MessageService],
   templateUrl: './anadir.component.html',
   styleUrl: './anadir.component.css'
@@ -34,7 +35,6 @@ export class AnadirComponent {
     private facturasService: FacturasService,
     private router: Router) {
     this.addPhoto = this.formBuilder.group({
-      tipo: ['', [Validators.required]],
       imagen: ['', [Validators.required]],
     });
   }
@@ -44,33 +44,25 @@ export class AnadirComponent {
   }
 
   onFileSelected(event: any) {
-    console.log(event);
-    const file: File = event.files[0];
-    console.log(file);
-    
+    const file: File = event.target.files[0];
     this.nameArchivo = file.name;
     this.addPhoto.get('imagen')?.setValue(file);
-
   }
 
   public onSubmit(): void {
     // El usuario ha pulsado en submit -> cambia a true submitted
     this.submitted = true;
-
     // Si el formulario es válido
     if (this.addPhoto.valid) {
       // Obtener el archivo de imagen y el tipo
       const imagen: File = this.addPhoto.get('imagen')?.value;
-      const tipo = this.addPhoto.get('tipo')?.value;
-
       // Si tenemos un archivo
       if (imagen) {
         // Extraer el nombre del archivo y su extensión
         const extension = imagen.name.split('.').pop(); // Extraer la extensión del archivo
         const nombreSinExtension = imagen.name.substring(0, imagen.name.lastIndexOf('.')); // Nombre sin la extensión
-
         // Crear el nuevo nombre del archivo, añadiendo el tipo
-        const nuevoNombre = `${tipo}-${nombreSinExtension}.${extension}`;
+        const nuevoNombre = `${nombreSinExtension}.${extension}`;
 
         // Crear un nuevo objeto File con el nombre modificado (pero manteniendo el contenido)
         const nuevoArchivo = new File([imagen], nuevoNombre, { type: imagen.type });
@@ -79,15 +71,15 @@ export class AnadirComponent {
         const factura: any = {
           imagen: nuevoArchivo,  // Enviar el archivo con el nuevo nombre
         };
-
         this.loading = true;
 
         // Llamar al servicio para añadir el coche
         this.facturasService.addFacturas(factura).subscribe(
           (response) => {
             console.log('Datos enviados con éxito');
+            this.router.navigate(['']);
             this.loading = false;
-            this.router.navigate(['list']);
+            
           },
           (error) => {
             console.error('Error al enviar los datos', error);
@@ -101,7 +93,7 @@ export class AnadirComponent {
 
   onInputChange() {
     // Obtén los valores actuales de 'price' e 'iva'
-    const tipo = this.addPhoto.get('tipo')?.value;
+    // const tipo = this.addPhoto.get('tipo')?.value;
     // const ivaString = this.anadirGasto.get('iva')?.value;
     // const iva = parseFloat(ivaString);
     // if (price !== null && iva !== null && typeof price === 'number' && typeof iva === 'number') {
