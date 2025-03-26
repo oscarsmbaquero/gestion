@@ -11,21 +11,24 @@
           <p-avatar image="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1742811830/agregar_orzrth.png" shape="circle" />
           <span class="font-bold whitespace-nowrap">Añadir</span>
       </p-tab>
-      <!-- <p-tab value="2">
-          <p-avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
-          <span class="font-bold whitespace-nowrap">Ioni Bowcher</span>
-          <p-badge value="2" />
-      </p-tab> -->
+      <p-tab value="2">
+          <p-avatar image="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1742974718/warning_mjzrvr.png" shape="circle" />
+          <span class="font-bold whitespace-nowrap">Facturas incompletas</span>
+          <p-badge [value]="erroFacturasCount" severity="danger" />
+      </p-tab>
       <ng-template #nexticon>
           <i class="pi pi-plus"></i>
       </ng-template>
   </p-tablist>
   <p-tabpanels>
-      <p-tabpanel value="0">
-         <app-listado></app-listado>
+    <p-tabpanel value="0">
+        <app-listado></app-listado>
       </p-tabpanel>
       <p-tabpanel value="1">
-        <app-anadir></app-anadir>
+        <app-anadir></app-anadir>      
+      </p-tabpanel>      
+      <p-tabpanel value="2">
+        <app-facturas-erroneas></app-facturas-erroneas>
       </p-tabpanel>
   </p-tabpanels>
 </p-tabs>

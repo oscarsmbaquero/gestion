@@ -28,16 +28,16 @@ ngOnInit() {
   this.loading = true;
   this.facturasService.getfacturas().subscribe((element) => {
     // Agregar la propiedad "incomplete" si algún campo tiene "No encontrado"
-    const facturasActualizadas = element.map((factura: any) => {
-      const hasNoEncontrado = Object.values(factura).some(value => value === "No encontrado");
-      return { ...factura, incomplete: hasNoEncontrado };
-    });
+    // const facturasActualizadas = element.map((factura: any) => {
+    //   const hasNoEncontrado = Object.values(factura).some(value => value === "No encontrado");
+    //   return { ...factura, incomplete: hasNoEncontrado };
+    // });
+    const facturasActualizadas = element;
 
     this.facturasSubject.next(facturasActualizadas);
     this.facturas = facturasActualizadas;
     
-    console.log(this.facturas);
-    console.log(this.facturasSubject);
+    
 
     this.loading = false;
   });

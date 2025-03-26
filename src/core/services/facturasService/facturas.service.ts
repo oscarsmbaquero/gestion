@@ -20,9 +20,7 @@ export class FacturasService {
     return this.httpClient.get<IFactura[]>(`${environment.apiUrl}facturas`);
   }
 
-  public addFacturas(body: IMage): Observable<IMage> {
-    console.log(body,'body');
-    
+  public addFacturas(body: IMage): Observable<IMage> {    
     const formData = new FormData();
     formData.append('imagen', body.imagen);    
     //formData.append('tipo', body.tipo);
@@ -31,5 +29,10 @@ export class FacturasService {
       formData
     );
   } 
+
+  public getFacturasErroneas():Observable<IFactura[]>{
+    return this.httpClient.get<IFactura[]>(`${environment.apiUrl}facturas/erroneas`);
+
+  }
   
 }
