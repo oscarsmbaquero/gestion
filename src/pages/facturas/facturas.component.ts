@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { IFactura } from '../../core/models/facturas-model';
 import { FacturasService } from '../../core/services/facturasService/facturas.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 //primeng
 import { AvatarModule } from 'primeng/avatar';
 import { TabsModule } from 'primeng/tabs';
 import { BadgeModule } from 'primeng/badge';
+import { SidebarModule } from 'primeng/sidebar';
 //components
 import { ListadoComponent } from './components/listado/listado.component';
 import { AnadirComponent } from './components/anadir/anadir.component';
@@ -17,7 +20,18 @@ import { GraficasComponent } from './components/graficas/graficas.component';
 @Component({
   selector: 'app-facturas',
   standalone: true,
-  imports: [TabsModule, CommonModule, AnadirComponent, ListadoComponent, AvatarModule, BadgeModule, FacturasErroneasComponent, GraficasComponent],
+  imports: [
+             TabsModule, 
+             CommonModule, 
+             AnadirComponent, 
+             ListadoComponent, 
+             AvatarModule, 
+             BadgeModule, 
+             FacturasErroneasComponent, 
+             GraficasComponent, 
+             SidebarModule, 
+             ReactiveFormsModule
+            ],
   templateUrl: './facturas.component.html',
   styleUrl: './facturas.component.css'
 })
@@ -28,9 +42,16 @@ export class FacturasComponent implements OnInit {
     facturasIncompletas! : any[]
     loading = false;
     erroFacturasCount = 0;
+    visible = false;
+    filtrosForm: FormGroup;
 
-    constructor(private facturasService: FacturasService){
-    
+    constructor(private fb: FormBuilder, private facturasService: FacturasService) {
+      this.filtrosForm = this.fb.group({
+        tipoDocumento: ['',],
+        estado: ['',],
+        mes: ['',],
+        anio: ['',]
+      });
     }
 
   ngOnInit() {    
@@ -50,6 +71,26 @@ export class FacturasComponent implements OnInit {
       this.facturasIncompletas = this.facturas.filter((element) => element.incomplete);
       this.loading = false;
     });
+  }
+
+  change(){
+    this.visible = true;
+  }
+
+  onDateChange(event: Event): void {    
+    const input = event.target as HTMLInputElement;
+    //this.dateFilter.emit(input.value);
+  }
+
+  closeSidebar(): void {
+    this.visible = false;
+  }
+
+  aplicarFiltros() {
+    //const filtros = this.filtrosForm.value;
+    //console.log('Filtros:', filtros);
+    // Procesar filtros...
+    //this.visible = false;
   }
 
   }

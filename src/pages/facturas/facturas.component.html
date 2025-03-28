@@ -53,4 +53,64 @@
     </p-tabpanel>
   </p-tabpanels>
 </p-tabs>
+<button class="floating-button-filter" (click)="change()">
+  <p-avatar
+  image="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1743160174/filtros_asrfpz.webp"
+  shape="circle"
+/>
+</button>
+<p-sidebar [(visible)]="visible" [baseZIndex]="10000" position="right">
+  <div class="input-container">
+    <div class="mb-1">
+      <img src="https://res.cloudinary.com/dcfk8yjwr/image/upload/v1742890468/zss/logo-blanco1_nd1mjl.png" style="width: 250px" />
+    </div>
+    
+    <h3>Filtrar por criterios</h3>
+    
+    <form [formGroup]="filtrosForm" (ngSubmit)="aplicarFiltros()">
+      <div class="select-group">
+        <select class="custom-select" formControlName="tipoDocumento">
+          <option value="" selected disabled>Tipo de documento</option>
+          <option value="factura">Factura</option>
+          <option value="boleta">Boleta</option>
+          <option value="recibo">Recibo</option>
+        </select>
+        
+        <select class="custom-select" formControlName="estado">
+          <option value="" selected disabled>Estado</option>
+          <option value="pendiente">Pendiente</option>
+          <option value="pagado">Pagado</option>
+          <option value="cancelado">Cancelado</option>
+        </select>
+        
+        <select class="custom-select" formControlName="mes">
+          <option value="" selected disabled>Mes</option>
+          <option value="01">Enero</option>
+          <option value="02">Febrero</option>
+          <option value="03">Marzo</option>
+          <option value="04">Abril</option>
+          <option value="05">Mayo</option>
+          <option value="06">Junio</option>
+          <option value="07">Julio</option>
+          <option value="08">Agosto</option>
+          <option value="09">Septiembre</option>
+          <option value="10">Octubre</option>
+          <option value="11">Noviembre</option>
+          <option value="12">Diciembre</option>
+        </select>
+        
+        <select class="custom-select" formControlName="anio">
+          <option value="" selected disabled>Año</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+        </select>
+      </div>
+      
+      <button class="boton" type="submit" [disabled]="filtrosForm.invalid">
+        <span style="color: white;">Aplicar Filtros</span>
+      </button>
+    </form>
+  </div>
+</p-sidebar>
 <!-- </div> -->
