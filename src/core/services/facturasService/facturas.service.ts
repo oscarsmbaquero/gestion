@@ -20,6 +20,21 @@ export class FacturasService {
     return this.httpClient.get<IFactura[]>(`${environment.apiUrl}facturas`);
   }
 
+  filters(proveedor: any) {
+    const payload = {
+      proveedor: 'Hostinger International Ltd.',
+      cif: '44406297J',
+      fechaDesde: '2024-01-01',
+      fechaHasta: '2024-11-14',
+      totalMin: 8.44,
+      totalMax: 8.46
+    };
+    return this.httpClient.post<any>(
+      `${environment.apiUrl}facturas/filter`,
+      payload
+    );
+  }
+
   public addFacturas(body: IMage): Observable<IMage> {    
     const formData = new FormData();
     formData.append('imagen', body.imagen);    

@@ -25,6 +25,11 @@ export class ListadoComponent {
 
 }
 ngOnInit() {
+  this.facturasService.filters('EMPRESA A, S.L.').subscribe((element)=>{
+    console.log(element);
+    
+  }
+)
   this.loading = true;
   this.facturasService.getfacturas().subscribe((element) => {
     // Agregar la propiedad "incomplete" si algún campo tiene "No encontrado"
